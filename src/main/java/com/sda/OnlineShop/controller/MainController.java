@@ -1,5 +1,6 @@
 package com.sda.OnlineShop.controller;
 
+
 import com.sda.OnlineShop.dto.ProductDto;
 import com.sda.OnlineShop.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,10 +8,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+
+
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class MainController {
+
 
     @Autowired
     private ProductService productService;
@@ -29,6 +33,7 @@ public class MainController {
         productService.addProduct(productDto);
         System.out.println("S-a apelat functionalitatea de addProductPost");
         System.out.println(productDto);
+
         return "addProduct";
     }
 }
