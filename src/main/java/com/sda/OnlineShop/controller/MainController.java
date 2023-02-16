@@ -11,6 +11,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 
 
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.util.List;
 
 @Controller
 public class MainController {
@@ -27,13 +31,19 @@ public class MainController {
         //dupa care introducem un nume "addProduct"
         return "addProduct";
     }
-
     @PostMapping("/addProduct")
-    public String addProductPost(@ModelAttribute ProductDto productDto) {
-        productService.addProduct(productDto);
+    public String addProductPost(@ModelAttribute ProductDto productDto,
+                                 @RequestParam("productImage") MultipartFile productImage) {
+
+        productService.addProduct(productDto, productImage);
         System.out.println("S-a apelat functionalitatea de addProductPost");
         System.out.println(productDto);
-
         return "addProduct";
+    }
+    @GetMapping("/home")
+    public String homeGet(Model model) {
+        List<ProductDto> productDtos = productService.getAllProductDtos();
+        model.addAttribute("productDtos", productDtos);
+        return "home";
     }
 }
