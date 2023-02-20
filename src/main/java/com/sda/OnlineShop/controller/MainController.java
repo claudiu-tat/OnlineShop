@@ -32,7 +32,8 @@ public class MainController {
 
     @PostMapping("/addProduct")
     public String addProductPost(@ModelAttribute ProductDto productDto,
-                                 @RequestParam("productImage") MultipartFile productImage) {
+                                 @RequestParam("productImage") MultipartFile productImage)
+    {
 
         productService.addProduct(productDto, productImage);
         System.out.println("S-a apelat functionalitatea de addProductPost");
@@ -47,15 +48,17 @@ public class MainController {
         return "home";
     }
 
-    @GetMapping("/product/{productId}")
+    @GetMapping("/product/{name}/{productId}")
     public String viewProductGet(Model model,
-                                 @PathVariable(value = "productId") String productId) {
-        Optional<ProductDto> optionalProductDto = productService.getOptionalProductDtoById(productId);
+                                 @PathVariable(value = "productId") String productId,
+                                 @PathVariable(value = "name") String name)
+    {
+      Optional<ProductDto> optionalProductDto = productService.getOptionalProductDtoById(productId);
         if (optionalProductDto.isEmpty()) {
             return "error";
         }
         model.addAttribute("productDto", optionalProductDto.get());
-        System.out.println("Am dat click pe produsul cu id " + productId);
+        System.out.println("Am dat click pe produsul cu nume " + name + "id " + productId);
         return "viewProduct";
     }
 }
