@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+
     <meta charset="UTF-8">
     <title>Title</title>
 
@@ -33,10 +34,12 @@
       <div class="col-lg-5 offset-lg-1">
         <div class="s_product_text">
           <h3 th:text="${productDto.name}"></h3>
+
           <h2 th:text="${'$'+ productDto.price}"></h2>
           <ul class="list">
             <li><a class="active" href="#"><span>Category :</span> <span th:text="${productDto.category}"></span></a></li>
             <li><a href="#"><span>Availibility :</span> <span th:text="${productDto.quantity}"></a></li>
+
           </ul>
           <p th:text="${productDto.description}"></p>
           <div class="product_count">

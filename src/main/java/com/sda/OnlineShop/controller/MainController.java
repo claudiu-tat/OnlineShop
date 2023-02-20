@@ -53,7 +53,7 @@ public class MainController {
                                  @PathVariable(value = "productId") String productId,
                                  @PathVariable(value = "name") String name)
     {
-        Optional<ProductDto> optionalProductDto = productService.getOptionalProductDtoById(productId);
+      Optional<ProductDto> optionalProductDto = productService.getOptionalProductDtoById(productId);
         if (optionalProductDto.isEmpty()) {
             return "error";
         }
