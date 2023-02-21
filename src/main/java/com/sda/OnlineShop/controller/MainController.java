@@ -2,7 +2,9 @@ package com.sda.OnlineShop.controller;
 
 
 import com.sda.OnlineShop.dto.ProductDto;
+import com.sda.OnlineShop.dto.RegistrationDto;
 import com.sda.OnlineShop.services.ProductService;
+import com.sda.OnlineShop.services.RegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +22,8 @@ public class MainController {
 
     @Autowired
     private ProductService productService;
+    @Autowired
+    private RegistrationService registrationService;
 
     @GetMapping("/addProduct")
     public String addProductGet(Model model) {
@@ -53,12 +57,31 @@ public class MainController {
                                  @PathVariable(value = "productId") String productId,
                                  @PathVariable(value = "name") String name)
     {
-      Optional<ProductDto> optionalProductDto = productService.getOptionalProductDtoById(productId);
+        Optional<ProductDto> optionalProductDto = productService.getOptionalProductDtoById(productId);
         if (optionalProductDto.isEmpty()) {
             return "error";
         }
         model.addAttribute("productDto", optionalProductDto.get());
         System.out.println("Am dat click pe produsul cu nume " + name + "id " + productId);
         return "viewProduct";
+    }
+
+    @GetMapping("/registration")
+    public String viewRegistrationGet (Model model) {
+        RegistrationDto registrationDto = new RegistrationDto();
+        model.addAttribute("registrationDto", registrationDto);
+        return "registration";
+    }
+
+    @PostMapping("/registration")
+    public String viewRegistrationPost(@ModelAttribute RegistrationDto registrationDto) {
+        System.out.println("S-a apelat functionalitatea reggistration " + registrationDto);
+        registrationService.addRegistration(registrationDto);
+        return "registration";
+    }
+
+    @GetMapping("/login")
+    public String viewLoginGet() {
+        return "login";
     }
 }
