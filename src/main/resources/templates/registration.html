@@ -40,6 +40,7 @@
                         </div>
                         <div class="col-md-12 form-group">
                             <input th:field="*{emailAddress}" type="text" class="form-control" id="email" name="email" placeholder="Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address'">
+                            <p th:each="error : ${#fields.errors('emailAddress')}" th:text="${error}"></p>
                         </div>
                         <div class="col-md-12 form-group">
                             <input th:field="*{address}" type="text" class="form-control" id="address" name="address" placeholder="Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Address'">
@@ -48,10 +49,10 @@
                             <input th:field="*{phoneNumber}" type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Phone Number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Phone Number'">
                         </div>
                         <div class="col-md-12 form-group">
-                            <input th:field="*{password}" type="text" class="form-control" id="password" name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+                            <input th:field="*{password}" type="password" class="form-control" id="password" name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
                         </div>
                         <div class="col-md-12 form-group">
-                            <input th:field="*{confirmPassword}" type="text" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Confirm Password'">
+                            <input th:field="*{confirmPassword}" type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Confirm Password'">
                         </div>
                         <div class="col-md-12 form-group">
                             <select th:field="*{userRole}"  class="form-control" id="userRole" name="userRole">
