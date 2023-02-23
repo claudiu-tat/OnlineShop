@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="/css/custom.css">
 </head>
 <body>
+<div th:insert="fragments/menu :: menu"></div>
 <!--================Login Box Area =================-->
 <section class="login_box_area section-margin">
   <div class="container">
@@ -39,7 +40,7 @@
               <input type="text" class="form-control" id="email" name="username" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
             </div>
             <div class="col-md-12 form-group">
-              <input type="text" class="form-control" id="password" name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+              <input type="password" class="form-control" id="password" name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
             </div>
             <div class="col-md-12 form-group">
               <div class="creat_account">
