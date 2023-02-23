@@ -3,6 +3,7 @@ package com.sda.OnlineShop.controller;
 
 import com.sda.OnlineShop.dto.ProductDto;
 import com.sda.OnlineShop.dto.RegistrationDto;
+import com.sda.OnlineShop.dto.SelectedProductDto;
 import com.sda.OnlineShop.services.ProductService;
 import com.sda.OnlineShop.services.RegistrationService;
 import com.sda.OnlineShop.validators.RegistrationDtoValidator;
@@ -67,6 +68,10 @@ public class MainController {
             return "error";
         }
         model.addAttribute("productDto", optionalProductDto.get());
+
+
+        SelectedProductDto selectedProductDto = new SelectedProductDto();
+        model.addAttribute("selectedProductDto", selectedProductDto );
         System.out.println("Am dat click pe produsul cu nume " + name + "id " + productId);
         return "viewProduct";
     }
