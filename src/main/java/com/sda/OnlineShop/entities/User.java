@@ -18,4 +18,6 @@ public class User {
     private String phoneNumber;
     @Enumerated(EnumType.STRING)
     private UserRole userRole;
+    @OneToOne(mappedBy = "user")
+    private ShoppingCart shoppingCart;
 }
