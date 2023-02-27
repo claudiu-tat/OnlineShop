@@ -16,7 +16,7 @@ public class RegistrationService {
     private UserMapper userMapper;
 
     public void addRegistration(RegistrationDto registrationDto) {
-        User user = userMapper.map(registrationDto);
+        User user = userMapper.map(registrationDto);   // construim userul cu ajutorul mapperului
         userRepository.save(user);
     }
 }
