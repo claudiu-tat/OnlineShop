@@ -18,6 +18,6 @@ public class User {
     private String phoneNumber;
     @Enumerated(EnumType.STRING)
     private UserRole userRole;
-    @OneToOne(mappedBy = "user")
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private ShoppingCart shoppingCart;
 }
