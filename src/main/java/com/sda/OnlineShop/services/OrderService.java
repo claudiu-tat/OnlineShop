@@ -26,7 +26,7 @@ public class OrderService {
         CustomerOrder customerOrder = new CustomerOrder();
         customerOrder.setUser(user);
 
-//        customerOrder.setSelectedProducts(shoppingCart.getSelectedProducts());
+//        customerOrder.setSelectedProducts(shoppingCart.getSelectedProducts());     not necessary
         customerOrderRepository.save(customerOrder);
 
 
