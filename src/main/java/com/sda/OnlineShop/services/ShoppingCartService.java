@@ -45,6 +45,8 @@ public class ShoppingCartService {
         ShoppingCart shoppingCart = shoppingCartRepository.findByUserEmailAddress(authenticatedUserEmail);
         ShoppingCartDto shoppingCartDto = shoppingCartMapper.map(shoppingCart);
         return shoppingCartDto;
-        // TODO
+     // TODO
+
+
     }
 }

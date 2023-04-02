@@ -35,6 +35,8 @@ public class MainController {
     private RegistrationDtoValidator registrationDtoValidator;
     @Autowired
     private ShoppingCartService shoppingCartService;
+    @Autowired
+    private OrderService orderService;
 
     @Autowired
     private OrderService orderService;
@@ -127,7 +129,9 @@ public class MainController {
     }
 
     @PostMapping("/confirmation")
-    public String launchOrderPost(Authentication authentication){
+
+    public String launchOrderPost(Authentication authentication) {
+
         orderService.launchOrder(authentication.getName());
         return "confirmation";
     }

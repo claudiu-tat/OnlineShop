@@ -23,17 +23,21 @@ public class ShoppingCartMapper {
 
         shoppingCartDto.setSelectedProductDtos(selectedProductDtoList);
         shoppingCartDto.setSubtotal(String.valueOf(subtotal));
+
         shoppingCartDto.setShipping("50$");
         shoppingCartDto.setTotal(String.valueOf(subtotal + 50));
+
 
         return shoppingCartDto;
     }
 
     private Integer computeSubtotal(List<SelectedProductDto> selectedProductDtoList) {
+
         int subtotal = 0;
         for (SelectedProductDto selectedProductDto : selectedProductDtoList) {
             int priceTimesQuantity = Integer.parseInt(selectedProductDto.getPriceTimesQuantity());
             subtotal += priceTimesQuantity;
+
         }
         return subtotal;
     }

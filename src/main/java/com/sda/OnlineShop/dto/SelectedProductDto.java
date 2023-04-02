@@ -11,5 +11,6 @@ public class SelectedProductDto {
     private String name;
     private String price;
     private String quantity;
+    private String price;
     private String priceTimesQuantity;
 }
