@@ -38,6 +38,9 @@ public class MainController {
     @Autowired
     private OrderService orderService;
 
+    @Autowired
+    private OrderService orderService;
+
     @GetMapping("/addProduct")
     public String addProductGet(Model model) {
         ProductDto productDto = new ProductDto();
@@ -126,7 +129,9 @@ public class MainController {
     }
 
     @PostMapping("/confirmation")
+
     public String launchOrderPost(Authentication authentication) {
+
         orderService.launchOrder(authentication.getName());
         return "confirmation";
     }
