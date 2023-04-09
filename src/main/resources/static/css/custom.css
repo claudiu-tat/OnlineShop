@@ -1,1 +1,52 @@
 /* here goes my custom css */
+
+.container-login {
+    height: 662px;
+}
+
+.section-margin.calc-60px.customize-available-products {
+    margin: 60px 0 70px 0;
+}
+
+.product_image_area.customize_single_product_area {
+    padding-top: 50px;
+}
+
+.quantity-customize {
+    margin-top: 30px;
+}
+
+.s_product_text {
+    margin-top: 25px;
+}
+
+.quantity-customize .container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.quantity-customize .input-text.qty {
+    width: 50px;
+    text-align: center;
+    border-radius: 0;
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 0 10px;
+}
+
+.quantity-customize button {
+    background-color: steelblue;
+    border: none;
+    font-size: 20px;
+    padding: 0 10px;
+    cursor: pointer;
+    margin: 0;
+}
+
+
+
+.btn.btn-outline-primary {
+    margin-right: 12px;
+    margin-top: 25px;
+}
+

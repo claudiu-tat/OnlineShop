@@ -14,17 +14,14 @@ import java.util.Optional;
 
 @Service
 public class ProductService {
-
     @Autowired
     private ProductMapper productMapper;
     @Autowired
     private ProductRepository productRepository;
-
     public void addProduct(ProductDto productDto, MultipartFile productImage) {
         Product product = productMapper.map(productDto, productImage);
         productRepository.save(product);
     }
-
     public List<ProductDto> getAllProductDtos() {
         List<Product> products = productRepository.findAll();
         List<ProductDto> productDtos = new ArrayList<>();
@@ -34,7 +31,6 @@ public class ProductService {
         }
         return productDtos;
     }
-
     public Optional<ProductDto> getOptionalProductDtoById(String productId) {
         try {
             Optional<Product> optionalProduct = productRepository.findById(Integer.valueOf(productId));

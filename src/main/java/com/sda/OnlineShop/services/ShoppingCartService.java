@@ -22,10 +22,8 @@ public class ShoppingCartService {
     private ShoppingCartRepository shoppingCartRepository;
     @Autowired
     private SelectedProductRepository selectedProductRepository;
-
     @Autowired
     private ShoppingCartMapper shoppingCartMapper;
-
     public void addToCart(SelectedProductDto selectedProductDto, String productId, String authenticatedUserEmail) {
         Optional<Product> optionalProduct = productRepository.findById(Integer.valueOf(productId));
         Product product = optionalProduct.get();
