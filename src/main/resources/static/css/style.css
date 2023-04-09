@@ -3696,7 +3696,7 @@ a {
 
 @media (min-width: 1000px) {
     .login_form_inner {
-        padding-top: 115px;
+        padding-top: 125px;
         padding-bottom: 0
     }
 }
@@ -4587,7 +4587,7 @@ a {
     position: absolute;
     right: 0px;
     top: 14px;
-    @icnlude transition
+    @include transition
 }
 
 .review_item .media .media-body .reply_btn:hover {

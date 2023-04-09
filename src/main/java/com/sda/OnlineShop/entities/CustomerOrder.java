@@ -14,7 +14,8 @@ import java.util.List;
 public class CustomerOrder {
     @Id
     @GeneratedValue
-    private Integer id;
+    private Integer customerOrderId;
+
     @ManyToOne
     @JoinColumn
     private User user;

@@ -18,7 +18,6 @@ public class SelectedProduct {
     @ManyToOne
     @JoinColumn
     private ShoppingCart shoppingCart;
-
     @ManyToOne
     @JoinColumn
     private CustomerOrder customerOrder;

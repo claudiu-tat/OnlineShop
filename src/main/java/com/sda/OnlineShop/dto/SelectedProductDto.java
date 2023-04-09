@@ -9,8 +9,7 @@ import lombok.ToString;
 @ToString
 public class SelectedProductDto {
     private String name;
-    private String price;
-    private String quantity;
+    private String quantity = "1";
     private String price;
     private String priceTimesQuantity;
 }

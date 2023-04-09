@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Home</title>
     <link rel="icon" href="/img/Fevicon.png" type="image/png">
     <link rel="stylesheet" href="/vendors/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="/vendors/fontawesome/css/all.min.css">
@@ -14,13 +14,12 @@
     <link rel="stylesheet" href="/vendors/nouislider/nouislider.min.css">
 
     <link rel="stylesheet" href="/css/style.css">
-
     <link rel="stylesheet" href="/css/custom.css">
 </head>
 <body>
-<div th:insert="fragments/menu :: menu"></div>
+<div th:insert="~{fragments/menu :: menu}"></div>
 <!-- ================ trending product section start ================= -->
-<section class="section-margin calc-60px">
+<section class="section-margin calc-60px customize-available-products">
     <div class="container">
         <div class="section-intro pb-60px">
             <p>Available products</p>
@@ -29,7 +28,8 @@
             <div th:each="productDto:${productDtos}" class="col-md-6 col-lg-4 col-xl-3">
                 <div class="card text-center card-product">
                     <div class="card-product__img">
-                        <img class="card-img" th:src="${'data:image/png; base64, '+productDto.image}" alt="">
+                        <img class="card-img" style="width: 200px"
+                             th:src="${'data:image/png; base64, '+productDto.image}" alt="">
                         <ul class="card-product__imgOverlay">
                             <li>
                                 <button><i class="ti-search"></i></button>
@@ -44,8 +44,11 @@
                     </div>
                     <div class="card-body">
                         <p th:text="${productDto.category}" ></p>
-
-                        <h4 class="card-product__title"><a th:text="${productDto.name}" th:href="@{/product/{y}/{x}(x=${productDto.id},y=${productDto.name})}"></a></h4>
+                        <h4 class="card-product__title">
+                            <a
+                                    th:text="${productDto.name}"
+                                    th:href="@{/product/{y}/{x}(x=${productDto.id},y=${productDto.name})}">
+                            </a></h4>
                         <p th:text="${'$'+productDto.price}" class="card-product__price"></p>
                     </div>
                 </div>

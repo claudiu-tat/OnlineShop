@@ -12,34 +12,28 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class OrderService {
-
-
-
     @Autowired
     private ShoppingCartRepository shoppingCartRepository;
     @Autowired
     private SelectedProductRepository selectedProductRepository;
     @Autowired
     private CustomerOrderRepository customerOrderRepository;
-
-
-    public void launchOrder (String authenticatedEmailAddress) {
-        ShoppingCart shoppingCart = shoppingCartRepository.findByUserEmailAddress(authenticatedEmailAddress);
+    
+    public void launchOrder(String authenticatedUserEmail) {
+        ShoppingCart shoppingCart = shoppingCartRepository.findByUserEmailAddress(authenticatedUserEmail);
 
         User user = shoppingCart.getUser();
 
         CustomerOrder customerOrder = new CustomerOrder();
         customerOrder.setUser(user);
+        // customerOrder.setSelectedProducts(shoppingCart.getSelectedProducts());     this is not necessary because selectedProducts in already in the card and can not be in two places
+        customerOrderRepository.save(customerOrder);        // here we create an empty order, is associated just the user
 
-//        customerOrder.setSelectedProducts(shoppingCart.getSelectedProducts());
-        customerOrderRepository.save(customerOrder);
-
-        // scoatem selectedProducts din shoppingCart pentru ca sunt prinse in comanda
-        for (SelectedProduct selectedProduct : shoppingCart.getSelectedProducts()) {
-
-            selectedProduct.setShoppingCart(null);
-            selectedProduct.setCustomerOrder(customerOrder);
-            selectedProductRepository.save(selectedProduct);
+        // here we take out selectedProducts from shoppingCart because and put it on the order
+        for (SelectedProduct selectedProduct : shoppingCart.getSelectedProducts()) {      // take every selectedProduct from shoppingCart looping with for each
+            selectedProduct.setShoppingCart(null);                 // get out the selected products from cart by setting null
+            selectedProduct.setCustomerOrder(customerOrder);       // here we put the selected products from shoppingCart to the customerOrder created above at line 30
+            selectedProductRepository.save(selectedProduct);       // here we saved with selectedProductRepository because selectedProductRepository is the one who know id of shopp`ingCart and customerOrder
         }
     }
 }
