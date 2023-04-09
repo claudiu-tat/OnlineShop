@@ -7,9 +7,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class SelectedProductMapper {
 
+
     public SelectedProductDto map(SelectedProduct selectedProduct) {
         SelectedProductDto selectedProductDto = new SelectedProductDto();
-
+        
         selectedProductDto.setName(selectedProduct.getProduct().getName());
         selectedProductDto.setPrice(String.valueOf(selectedProduct.getProduct().getPrice()));
         selectedProductDto.setQuantity(String.valueOf(selectedProduct.getQuantity()));
@@ -17,3 +18,4 @@ public class SelectedProductMapper {
         return  selectedProductDto;
     }
 }
+

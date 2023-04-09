@@ -120,6 +120,7 @@ public class MainController {
 
     @PostMapping("/confirmation")
     public String launchOrderPost(Authentication authentication) {
+
         orderService.launchOrder(authentication.getName());
         return "confirmation";
     }

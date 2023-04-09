@@ -44,7 +44,7 @@ public class ShoppingCartService {
     public ShoppingCartDto getShoppingCartDto (String authenticatedUserEmail) {
         ShoppingCart shoppingCart = shoppingCartRepository.findByUserEmailAddress(authenticatedUserEmail);
         ShoppingCartDto shoppingCartDto = shoppingCartMapper.map(shoppingCart);
-
         return shoppingCartDto;
+
     }
 }

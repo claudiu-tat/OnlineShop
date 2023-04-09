@@ -25,7 +25,6 @@ public class ShoppingCartMapper {
         shoppingCartDto.setSubtotal(String.valueOf(subtotal));
         shoppingCartDto.setShipping("50$");
         shoppingCartDto.setTotal(String.valueOf(subtotal + 50));
-
         return shoppingCartDto;
     }
 

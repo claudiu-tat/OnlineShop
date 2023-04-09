@@ -8,7 +8,6 @@ import com.sda.OnlineShop.repository.CustomerOrderRepository;
 import com.sda.OnlineShop.repository.SelectedProductRepository;
 import com.sda.OnlineShop.repository.ShoppingCartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -19,9 +18,10 @@ public class OrderService {
     private SelectedProductRepository selectedProductRepository;
     @Autowired
     private CustomerOrderRepository customerOrderRepository;
-
+    
     public void launchOrder(String authenticatedUserEmail) {
         ShoppingCart shoppingCart = shoppingCartRepository.findByUserEmailAddress(authenticatedUserEmail);
+
         User user = shoppingCart.getUser();
 
         CustomerOrder customerOrder = new CustomerOrder();

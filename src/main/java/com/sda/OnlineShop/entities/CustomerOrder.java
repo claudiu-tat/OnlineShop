@@ -15,6 +15,7 @@ public class CustomerOrder {
     @Id
     @GeneratedValue
     private Integer customerOrderId;
+
     @ManyToOne
     @JoinColumn
     private User user;
